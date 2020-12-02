@@ -62,6 +62,10 @@ const App = () => {
 //alert componets go iside the return method
     return (
         <div className ="App">
+            <div class="container-cover">
+            <img src="/Images/Food-jumbotron-image3.jpg"></img>
+            </div>
+            
             <h1>Food Searching App</h1>
             <form className="search-form" onSubmit={onSubmit}>
 

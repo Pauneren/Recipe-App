@@ -182,3 +182,19 @@ ul.food-list{
  
  
 }
+
+.container-cover {
+  width: 100%;
+  height: 350px;
+  position: relative;
+
+ 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+img{
+  width: 100%;
+  height:rem;
+}
