@@ -28,7 +28,7 @@ h1 {
   color: #825635;
   text-shadow: 0 0.5rem 1.5rem rgb(53, 52, 52);
  
-  margin: 4rem 0;
+  margin: 2rem  0;
 }
 
 
@@ -197,10 +197,21 @@ img{
  
 }
 
-.video{
+/* .video{
   width: 550px;
   height: 450px;
   background-color: rebeccapurple;
-
+ text-shadow: 0 0.5rem 0.5rem #555;
   display: flex;
+} */
+
+.youtube{
+  border : 3px rgb(206, 160, 35) solid;
+  text-shadow: 0 0.5rem 0.5rem #555;
+
+}
+
+button{
+  margin: 10px;
+  padding: 10px 20px;
 }
