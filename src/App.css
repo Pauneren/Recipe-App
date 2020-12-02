@@ -172,9 +172,7 @@ h2{
   font-size: 1.3rem;
 }
 
-li.food-list{
- 
-}
+
 
 ul.food-list{
   color: #645f19;
@@ -196,5 +194,13 @@ ul.food-list{
 
 img{
   width: 100%;
-  height:rem;
+ 
+}
+
+.video{
+  width: 550px;
+  height: 450px;
+  background-color: rebeccapurple;
+
+  display: flex;
 }

@@ -4,7 +4,7 @@ import {v4 as uuidv4} from 'uuid';
 import './App.css';
 import Recipe from './components/Recipe';
 import Alert from './components/Alert';
-//
+
 
 
 const App = () => {
@@ -63,7 +63,7 @@ const App = () => {
     return (
         <div className ="App">
             <div class="container-cover">
-            <img src="/Images/Food-jumbotron-image3.jpg"></img>
+            <img src="/Images/Food-jumbotron-image5.jpg"></img>
             </div>
             
             <h1>Food Searching App</h1>
@@ -89,7 +89,9 @@ const App = () => {
                     <Recipe key={uuidv4()} recipe={recipe}/>)}
             </div>
            
+                        <div className= "video">
 
+                        </div>
         </div>
     );
 };
