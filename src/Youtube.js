@@ -9,18 +9,17 @@ import React, { Component } from 'react';
 
 //https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyAOYG1Ai4mZy6L-ifZgQ8bzS87vA6v3JdA&channelId=UCXgGY0wkgOzynnHvSEVmE3A&part=snippet,id&order=date&maxResults=10
 
-var API = 'AIzaSyAOYG1Ai4mZy6L-ifZgQ8bzS87vA6v3JdA';
 
-API = 'AIzaSyC6nN-WcT6_fT4zOvsST4flPyClkuIO3SI';
+
+const API = 'AIzaSyC6nN-WcT6_fT4zOvsST4flPyClkuIO3SI';
 
 const channelID ='UCXgGY0wkgOzynnHvSEVmE3A';
+
 const result = 5;
 
-var finalURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API}&channelId=${channelID}&part=snippet,id&order=dae&maxResults=${result}`;
+//var finalURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API}&channelId=${channelID}&part=snippet,id&order=dae&maxResults=${result}`;
 
-finalURL = 'https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyC6nN-WcT6_fT4zOvsST4flPyClkuIO3SI';
-
-finalURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API}`;
+var finalURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API}&maxResults=${result}`;
  
 //Create a youtube class
 class Youtube  extends Component {
