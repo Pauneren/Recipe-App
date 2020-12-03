@@ -13,13 +13,13 @@ import React, { Component } from 'react';
 
 const API = 'AIzaSyC6nN-WcT6_fT4zOvsST4flPyClkuIO3SI';
 
-const channelID ='UCXgGY0wkgOzynnHvSEVmE3A';
+const channelID ='UCD5WWnRed32y3xGwmrDhUiQ';
 
-const result = 5;
+const result = 2;
 
 //var finalURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API}&channelId=${channelID}&part=snippet,id&order=dae&maxResults=${result}`;
 
-var finalURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API}&maxResults=${result}`;
+var finalURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API}&maxResults=${result}&channelId=${channelID}`;
  
 //Create a youtube class
 class Youtube  extends Component {
@@ -50,6 +50,8 @@ class Youtube  extends Component {
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);
+      const resultyt = responseJson.items.map(obj => obj.id.videoId)
+      this.setState({resultyt});
     })
     .catch((error) => {
       console.error(error);
@@ -61,13 +63,15 @@ class Youtube  extends Component {
 
     render(){
 
-    
+        console.log(this.state.resultyt)
         return(
             <div>
                 <button onClick={this.clicked}>Watch Recipies</button>
                 <div className = "youtube">
-                    
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/G-qp3NRR1Y0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                {this.state.resultyt !== [] && 
+                this.state.resultyt.map(id  =>
+                    <iframe width="560" height="315" src={`https://www.youtube.com/embed/${id}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>)}
+                       
                 </div>
                 </div>
         );

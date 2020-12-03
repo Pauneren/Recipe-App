@@ -11,7 +11,7 @@ const[show, setShow]= useState(false)
             <img src={image} alt={label}/>
             
             <a href={url} target="_blank" rel="noopener noreferrer">
-                URL
+               RECIPE
             </a>
             <button onClick={() => setShow(!show)}>Ingredients</button>
 
@@ -20,4 +20,4 @@ const[show, setShow]= useState(false)
     )
 }
 
-export default Recipe
+export default Recipe;
