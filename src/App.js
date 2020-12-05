@@ -1,98 +1,123 @@
-import React, {useState} from 'react';
-import Axios from 'axios';
-import {v4 as uuidv4} from 'uuid';
-import './App.css';
-import Recipe from './components/Recipe';
-import Alert from './components/Alert';
-import Youtube from './Youtube';
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import "./App.css";
+import Recipe from "./components/Recipe.jsx";
+import Alert from "./components/Alert.jsx";
+import ApiHelper from "./api-helper";
+import CarouselFrame from "./components/CarouselFrame.jsx";
 
-
+import Switch from "@material-ui/core/Switch";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { useN02SwitchStyles } from "@mui-treasury/styles/switch/n02";
 
 const App = () => {
-    const[query, setQuery] = useState("");
-    //display the recipies
-    const[recipes, setRecipes] = useState([]);
+  const [query, setQuery] = useState("");
+  //display the recipies
+  const [recipes, setRecipes] = useState([]);
+  const [videos, setVideos] = useState([]);
+  const [showVideos, setToggled] = useState(false);
 
-    //Insert the alert message when the input field is empty:
-    const [alert, setAlert] = useState("");
+  const switchStyles = useN02SwitchStyles();
 
-    const APP_ID = "436512f9";
+  //Insert the alert message when the input field is empty:
+  const [alert, setAlert] = useState("");
 
-    const APP_KEY = "e923308e5e9f633adc29131d7bb67013";
+  const apiHelper = new ApiHelper();
 
-    const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`;
+  const getData = async () => {
+    // alert message if the name is misspelled:
+    if (query !== "") {
+      const recipiesFound = await apiHelper.searchRecipies(query);
+      const videosFound = await apiHelper.searchYouTube(query);
 
-  
-    const getData = async() => {
+      //display alert message if the property is set to false:
+      if (recipiesFound.length === 0) {
+        return setAlert("No food found whith that name");
+      }
 
-        // alert message if the name is misspelled:
-        if(query !== ""){
+      //get acces to the recipies array:
+      setRecipes(recipiesFound);
+      setVideos(videosFound);
 
-            const result = await Axios.get(url);
-            //display alert message if the property is set to false:
-            if(!result.data.more){
-                return setAlert('No food found whith that name')
-            }
-
-            //get acces to the recipies array:
-            setRecipes(result.data.hits)
-    
-            console.log(result);
-            //Set alert to am empty string because if we find the food with the name the message will be gone
-            setAlert("");
-            //setQuery to an empty string to clear the search input field
-            setQuery("");
-
-        }else{
-            setAlert("Please fill the form")
-        }
-
-
-       
+      //console.log(result);
+      //Set alert to am empty string because if we find the food with the name the message will be gone
+      setAlert("");
+      //setQuery to an empty string to clear the search input field
+      setQuery("");
+    } else {
+      setAlert("Please fill the form");
     }
+  };
 
-    const onChange = (e)=>{
-        setQuery(e.target.value)
-    }
+  const onChange = (e) => {
+    setQuery(e.target.value);
+  };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        getData();
-    }
-    
-//alert componets go iside the return method
-    return (
-        <div className ="App">
-            <div className="container-cover">
-            <img src="/Images/Food-jumbotron-image5.jpg"></img>
-            </div>
-            
-            <h1>Food Searching App</h1>
-            <form className="search-form" onSubmit={onSubmit}>
+  const onSubmit = (e) => {
+    e.preventDefault();
+    getData();
+  };
 
-               {alert !== "" && <Alert alert={alert}/>}
-              
-               
+  //alert componets go iside the return method
+  return (
+    <div className='App'>
+      <div className='container-cover'>
+        <img src='/Images/Food-jumbotron-image5.jpg'></img>
+      </div>
 
-                <input type ="text" 
-                placeholder="Search Food" 
-                autoComplete="off" 
-                onChange={onChange}
-                value={query}
+      <h1>Food Searching App</h1>
+      <form className='search-form' onSubmit={onSubmit}>
+        {alert !== "" && <Alert alert={alert} />}
 
-                />
-                <input type ="submit" value ="search"/>
-            </form>
-            <div className="recipes">
-              
-                {recipes !== [] && 
-                recipes.map(recipe =>
-                    <Recipe key={uuidv4()} recipe={recipe}/>)}
-            </div>
-           
-                            <Youtube/>
+        <input
+          type='text'
+          placeholder='Search Food'
+          autoComplete='off'
+          onChange={onChange}
+          value={query}
+        />
+        <input type='submit' value='search' />
+      </form>
+
+      <div>
+        <FormControlLabel
+          control={
+            <Switch
+              color='primary'
+              classes={switchStyles}
+              checked={!showVideos}
+              onChange={(e) => setToggled(!e.target.checked)}
+            />
+          }
+          label='Written recipies'
+          style={{ marginRight: "100px" }}
+        />
+
+        <FormControlLabel
+          control={
+            <Switch
+              color='secondary'
+              classes={switchStyles}
+              checked={showVideos}
+              onChange={(e) => setToggled(e.target.checked)}
+            />
+          }
+          label='Videos'
+        />
+      </div>
+
+      {!showVideos && (
+        <div className='recipes'>
+          {recipes !== [] &&
+            recipes.map((recipe) => <Recipe key={uuidv4()} recipe={recipe} />)}
         </div>
-    );
+      )}
+
+      {showVideos && videos.length > 0 && (
+        <CarouselFrame videoIdList={videos}></CarouselFrame>
+      )}
+    </div>
+  );
 };
 
 export default App;
