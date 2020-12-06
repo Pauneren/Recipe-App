@@ -11,7 +11,7 @@ const[show, setShow]= useState(false)
             <img src={image} alt={label}/>
             
             <a href={url} target="_blank" rel="noopener noreferrer">
-               RECIPE
+               Go to Recipe
             </a>
             <button onClick={() => setShow(!show)}>Ingredients</button>
 

@@ -22,12 +22,11 @@ html {
 }
 
 h1 {
-  font-size: 6rem;
-  letter-spacing: 0.1rem;
+  font-size: 7rem;
+  letter-spacing: 0.3rem;
   font-family: 'Rochester', cursive;
   color: #825635;
   text-shadow: 0 0.5rem 1.5rem rgb(53, 52, 52);
- 
   margin: 2rem  0;
 }
 
@@ -138,7 +137,7 @@ h2{
 
 .recipe a {
   font-size: 1.8rem;
-  color:#b48b40;
+  color:#825635b6;
 }
 
 .recipe button {
@@ -148,7 +147,7 @@ h2{
   background-color: #3FBACD;
   border: none;
   border-radius: 0.5rem;
-  height: 3rem;
+  height: 4rem;
 }
 
 .ingredient-list {
@@ -211,6 +210,7 @@ img{
 
 button{
   margin: 10px;
+<<<<<<< HEAD
   padding: px 20px;
 }
 
@@ -232,3 +232,15 @@ button{
     position: relative;
   }
 }
+=======
+  
+
+  background-color: #b48b40;
+}
+
+
+div.App{
+  margin-bottom: 30px;
+}
+
+>>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
