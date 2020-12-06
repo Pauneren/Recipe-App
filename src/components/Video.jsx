@@ -4,6 +4,7 @@ export default function Video({ id }) {
   return (
     <div className='youtube'>
       <iframe
+        title={`${id}`}
         width='560'
         height='315'
         src={`https://www.youtube.com/embed/${id}`}

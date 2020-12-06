@@ -63,7 +63,7 @@ const App = () => {
   return (
     <div className='App'>
       <div className='container-cover'>
-        <img src='/Images/Food-jumbotron-image5.jpg'></img>
+        <img src='/Images/Food-jumbotron-image5.jpg' alt="food"></img>
       </div>
 
       <h1>Recipe Searcher</h1>
