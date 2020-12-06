@@ -10,6 +10,7 @@ export default function ApiHelper() {
     if (query !== "") {
       const result = await Axios.get(URL);
 
+      //create an empty array, and push into the array the results from the API query
       var idList = [];
       result.data.items.forEach((item) => {
         idList.push(item.id.videoId);
@@ -21,6 +22,8 @@ export default function ApiHelper() {
     }
   };
 
+
+  //funtion to get the written recipes
   this.searchRecipies = async function (query) {
     const APP_ID = "436512f9";
     const APP_KEY = "e923308e5e9f633adc29131d7bb67013";
