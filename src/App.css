@@ -212,6 +212,13 @@ img{
 
 button{
   margin: 10px;
-  padding: 10px 20px;
+  
+
   background-color: #b48b40;
 }
+
+
+div.App{
+  margin-bottom: 30px;
+}
+
