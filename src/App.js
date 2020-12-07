@@ -27,10 +27,7 @@ const App = () => {
   const getData = async () => {
     // alert message if the name is misspelled:
     if (query !== "") {
-<<<<<<< HEAD
-=======
         //2 arrays with a rearch resuts
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
       const recipiesFound = await apiHelper.searchRecipies(query);
       const videosFound = await apiHelper.searchYouTube(query);
      
@@ -71,17 +68,10 @@ const App = () => {
   return (
     <div className='App'>
       <div className='container-cover'>
-<<<<<<< HEAD
-        <img src='/Images/Food-jumbotron-image5.jpg'></img>
-      </div>
-
-      <h1>Food Searching App</h1>
-=======
         <img src='/Images/Food-jumbotron-image5.jpg' alt="food"></img>
       </div>
 
       <h1>Recipe Searcher</h1>
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
       <form className='search-form' onSubmit={onSubmit}>
         {alert !== "" && <Alert alert={alert} />}
 
@@ -95,14 +85,10 @@ const App = () => {
         <input type='submit' value='search' />
       </form>
 
-<<<<<<< HEAD
-      <div>
-=======
 
 
       <div>
           {/* buttons to switch between recipe view and video view */}
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
         <FormControlLabel
           control={
             <Switch
@@ -115,19 +101,11 @@ const App = () => {
           label='Written recipies'
           style={{ marginRight: "100px" }}
         />
-<<<<<<< HEAD
-
-        <FormControlLabel
-          control={
-            <Switch
-              color='secondary'
-=======
   
         <FormControlLabel
           control={
             <Switch
               color='primary'
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
               classes={switchStyles}
               checked={showVideos}
               onChange={(e) => setToggled(e.target.checked)}
