@@ -184,8 +184,6 @@ ul.food-list{
   width: 100%;
   height: -100px;
   position: relative;
-
- 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -212,6 +210,29 @@ img{
 
 button{
   margin: 10px;
+<<<<<<< HEAD
+  padding: px 20px;
+}
+
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 4rem;
+  }
+  .search-form {
+    width: 30rem;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dadada;
+    border-radius: 0.5rem;
+    margin-bottom: 5rem;
+    box-shadow: 1rem 2rem 2rem #aaa;
+    position: relative;
+  }
+}
+=======
   
 
   background-color: #b48b40;
@@ -222,3 +243,4 @@ div.App{
   margin-bottom: 30px;
 }
 
+>>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
