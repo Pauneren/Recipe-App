@@ -30,6 +30,9 @@ const App = () => {
         //2 arrays with a rearch resuts
       const recipiesFound = await apiHelper.searchRecipies(query);
       const videosFound = await apiHelper.searchYouTube(query);
+     
+
+      
 
       //display alert message if the property is set to false:
       if (recipiesFound.length === 0) {
@@ -39,6 +42,8 @@ const App = () => {
       //get acces to the recipies array:
       setRecipes(recipiesFound);
       setVideos(videosFound);
+      //window.scrollTo(0,document.querySelector(".scrollingContainer").scrollHeight);
+      window.scrollTo(0,document.body.scrollHeight);
 
       //console.log(result);
       //Set alert to am empty string because if we find the food with the name the message will be gone
