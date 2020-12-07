@@ -1,16 +1,14 @@
 import React from "react";
 
-export default function Video({ id }) {
+
+//gets youtube video id as props
+const Video=({ selectedVideoId }) => {
   return (
     <div className='youtube'>
       <iframe
-<<<<<<< HEAD
-=======
-        title={`${id}`}
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
-        width='560'
-        height='315'
-        src={`https://www.youtube.com/embed/${id}`}
+        width='672'
+        height='378'
+        src={`https://www.youtube.com/embed/${selectedVideoId}`}
         frameBorder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
@@ -18,3 +16,5 @@ export default function Video({ id }) {
     </div>
   );
 }
+
+export default Video

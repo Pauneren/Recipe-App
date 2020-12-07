@@ -210,9 +210,8 @@ img{
 
 button{
   margin: 10px;
-<<<<<<< HEAD
-  padding: px 20px;
 }
+
 
 
 @media screen and (max-width: 500px) {
@@ -231,16 +230,5 @@ button{
     box-shadow: 1rem 2rem 2rem #aaa;
     position: relative;
   }
+ 
 }
-=======
-  
-
-  background-color: #b48b40;
-}
-
-
-div.App{
-  margin-bottom: 30px;
-}
-
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3

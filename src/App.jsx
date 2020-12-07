@@ -41,8 +41,8 @@ const App = () => {
 
       //get acces to the recipies array:
       setRecipes(recipiesFound);
+
       setVideos(videosFound);
-      //window.scrollTo(0,document.querySelector(".scrollingContainer").scrollHeight);
       window.scrollTo(0,document.body.scrollHeight);
 
       //console.log(result);
@@ -114,14 +114,14 @@ const App = () => {
           label='Videos'
         />
       </div>
-
+{/* condition to show recipies if the show videos is false */}
       {!showVideos && (
         <div className='recipes'>
           {recipes !== [] &&
             recipes.map((recipe) => <Recipe key={uuidv4()} recipe={recipe} />)}
         </div>
       )}
-
+  {/* we show videos if the app is in video mode andthe videos array lenght is bigger than 0 */}
       {showVideos && videos.length > 0 && (
         <CarouselFrame videoIdList={videos}></CarouselFrame>
       )}

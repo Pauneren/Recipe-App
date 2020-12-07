@@ -1,5 +1,6 @@
 import Axios from "axios";
 
+//youtube api
 export default function ApiHelper() {
   this.searchYouTube = async function (query) {
     const APP_KEY = "AIzaSyC1vmqOh9wq2sWTFWoN2S3U07F68WI4PDg";
@@ -10,10 +11,6 @@ export default function ApiHelper() {
     if (query !== "") {
       const result = await Axios.get(URL);
 
-<<<<<<< HEAD
-=======
-      //create an empty array, and push into the array the results from the API query
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
       var idList = [];
       result.data.items.forEach((item) => {
         idList.push(item.id.videoId);
@@ -25,11 +22,8 @@ export default function ApiHelper() {
     }
   };
 
-<<<<<<< HEAD
-=======
-
-  //funtion to get the written recipes
->>>>>>> e66f94ec05f75b44ec865505c3b980022cfe8cb3
+  
+//recipes api from edamam
   this.searchRecipies = async function (query) {
     const APP_ID = "436512f9";
     const APP_KEY = "e923308e5e9f633adc29131d7bb67013";

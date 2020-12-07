@@ -2,12 +2,16 @@ import React from "react";
 import Carousel from "react-elastic-carousel";
 import Video from "./Video.jsx";
 
-export default function CarouselFrame({ videoIdList }) {
+//receives an array of video Id strings as a prop
+const CarouselFrame=({ videoIdList }) => {
   return (
     <>
       {videoIdList.length > 0 && (
         <Carousel>
-          {videoIdList.map((videoId) => (
+          
+          { // Create carousel item for each item in the video array
+            videoIdList.map((videoId) => (
+            //content of each carousel item is a video component
             <Video id={videoId} />
           ))}
         </Carousel>
@@ -17,3 +21,5 @@ export default function CarouselFrame({ videoIdList }) {
     </>
   );
 }
+
+export default CarouselFrame
