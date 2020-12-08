@@ -12,7 +12,7 @@ const CarouselFrame=({ videoIdList }) => {
           { // Create carousel item for each item in the video array
             videoIdList.map((videoId) => (
             //content of each carousel item is a video component
-            <Video id={videoId} />
+            <Video selectedVideoId={videoId} />
           ))}
         </Carousel>
       )}
