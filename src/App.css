@@ -8,11 +8,13 @@
   text-decoration: none;
   list-style-type: none;
   outline: none;
+
 }
 
 html {
   font-size: 62.5%;
   background-color: #B7D4D9;
+  margin-bottom: 30px;
 }
 
 .App {
@@ -51,6 +53,7 @@ h2{
   margin-bottom: 5rem;
   box-shadow: 1rem 2rem 2rem #aaa;
   position: relative;
+
 }
 
 .alert {
@@ -205,6 +208,8 @@ img{
 .youtube{
   border : 3px rgb(206, 160, 35) solid;
   text-shadow: 0 0.5rem 0.5rem #555;
+  box-shadow: 2rem 1rem 2rem #aaa;
+  margin-bottom: 20px;
 
 }
 
@@ -230,5 +235,17 @@ button{
     box-shadow: 1rem 2rem 2rem #aaa;
     position: relative;
   }
- 
+  
+}
+
+
+
+
+button.rec-dot{
+  background-color: #868686a4;
+  box-shadow: 0 0 1px 3px rgba(16, 22, 18, 0.191);
+}
+
+button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus  {
+  box-shadow: 0 0 1px 3px #0C7C8D;
 }

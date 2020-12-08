@@ -90,6 +90,7 @@ const App = () => {
       <div>
           {/* buttons to switch between recipe view and video view */}
         <FormControlLabel
+          label={<span style={{ fontSize: '2rem'}}>Written recipies</span>}
           control={
             <Switch
               color='primary'
@@ -98,11 +99,11 @@ const App = () => {
               onChange={(e) => setToggled(!e.target.checked)}
             />
           }
-          label='Written recipies'
           style={{ marginRight: "100px" }}
         />
   
         <FormControlLabel
+          label={<span style={{ fontSize: '2rem'}}>Videos</span>}
           control={
             <Switch
               color='primary'
@@ -111,7 +112,6 @@ const App = () => {
               onChange={(e) => setToggled(e.target.checked)}
             />
           }
-          label='Videos'
         />
       </div>
 {/* condition to show recipies if the show videos is false */}
