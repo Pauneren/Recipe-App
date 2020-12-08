@@ -6,6 +6,7 @@ const Video=({ selectedVideoId }) => {
   return (
     <div className='youtube'>
       <iframe
+        title={`VideoId: ${selectedVideoId}`}
         width='672'
         height='378'
         src={`https://www.youtube.com/embed/${selectedVideoId}`}
