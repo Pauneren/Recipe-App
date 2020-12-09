@@ -15,15 +15,11 @@ const App = () => {
   //display the recipies
   const [recipes, setRecipes] = useState([]);
   const [videos, setVideos] = useState([]);
-
-  //
   const [showVideos, setToggled] = useState(false);
-
   const switchStyles = useN02SwitchStyles();
 
   //Insert the alert message when the input field is empty:
   const [alert, setAlert] = useState("");
-
 
   const getData = async () => {
     // alert message if the name is misspelled:
@@ -31,24 +27,27 @@ const App = () => {
         //2 arrays with a rearch resuts
         //this: apiHelper
 
-
-      const apiHelper = new ApiHelper();//creates objects
-
+      const apiHelper = new ApiHelper();//consructor function Object oriented   //creates objects
 
       const recipiesFound = await apiHelper.searchRecipies(query);//creates an array with the recipes
-     // const videosFound = await apiHelper.searchYouTube(query);
+      const videosFound = await apiHelper.searchYouTube(query);
+
+
+      //--------------------------------------------------------------------------------------------------------------
+       const ourJoke = await apiHelper.searchJokes(query);
+
+       console.log(ourJoke);
+      //------------------------------------------------------------------------------------
+
       //get acces to the recipies array:
       setRecipes(recipiesFound);
-      setVideos(await apiHelper.searchYouTube(query));
-
-      
+      setVideos(videosFound);
 
       //display alert message if the property is set to false:
-      if (videos.length === 0) {
+      if (recipiesFound.length === 0) {
         return setAlert("No food found whith that name");
       }
 
-      
       window.scrollTo(0,document.body.scrollHeight);
 
       //console.log(result);
@@ -71,6 +70,8 @@ const App = () => {
   };
 
   //alert componets go iside the return method
+
+  //HTML
   return (
     <div className='App'>
       <div className='container-cover'>
@@ -95,7 +96,7 @@ const App = () => {
 {/* Not show videos */}
       <div>
           {/* buttons to switch between recipe view and video view */}
-        <FormControlLabel
+        <FormControlLabel //components from material UI-----------------------------
           label={<span style={{ fontSize: '2rem'}}>Written recipies</span>}
           control={
             <Switch
@@ -121,6 +122,7 @@ const App = () => {
           }
         />
       </div>
+      {/* ---------------------------------------------------------------------------------------------end materila UI */}
 {/* condition to show recipies if the show videos is false */}
       {!showVideos && (
         <div className='recipes'>

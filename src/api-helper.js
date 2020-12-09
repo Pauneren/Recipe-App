@@ -4,6 +4,7 @@ import Axios from "axios";
 //constructor funcion creates objects
 //youtube api
 export default function ApiHelper() {
+ 
   this.searchYouTube = async function (query) {
     const APP_KEY = "AIzaSyC1vmqOh9wq2sWTFWoN2S3U07F68WI4PDg";
     const CHANNEL_ID = "UCD5WWnRed32y3xGwmrDhUiQ";
@@ -23,10 +24,7 @@ export default function ApiHelper() {
       return [];
     }
   };
-
-
-
-  
+ 
 //recipes api from edamam
   this.searchRecipies = async function (query) {
     const APP_ID = "436512f9";
@@ -44,4 +42,24 @@ export default function ApiHelper() {
       return [];
     }
   };
+
+    this.searchJokes = async function (query) {
+      const URL = `https://sv443.net/jokeapi/v2/joke/Any?type=single&contains=${query}`;
+      if (query !==""){
+        const result = await Axios.get(URL);
+
+        if(result.data.error)
+          return "No joke found";
+
+        return result.data.joke;
+
+      }
+      else return "Search query missing";
+    };
+
+
+
+
+  //const URL = `https://sv443.net/jokeapi/v2/joke/Any?type=single&contains=${query}`;
+
 }
