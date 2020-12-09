@@ -1,5 +1,7 @@
 import Axios from "axios";
 
+
+//constructor funcion creates objects
 //youtube api
 export default function ApiHelper() {
   this.searchYouTube = async function (query) {
@@ -21,6 +23,8 @@ export default function ApiHelper() {
       return [];
     }
   };
+
+
 
   
 //recipes api from edamam

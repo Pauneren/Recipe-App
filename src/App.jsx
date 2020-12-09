@@ -15,6 +15,8 @@ const App = () => {
   //display the recipies
   const [recipes, setRecipes] = useState([]);
   const [videos, setVideos] = useState([]);
+
+  //
   const [showVideos, setToggled] = useState(false);
 
   const switchStyles = useN02SwitchStyles();
@@ -22,27 +24,31 @@ const App = () => {
   //Insert the alert message when the input field is empty:
   const [alert, setAlert] = useState("");
 
-  const apiHelper = new ApiHelper();
 
   const getData = async () => {
     // alert message if the name is misspelled:
     if (query !== "") {
         //2 arrays with a rearch resuts
-      const recipiesFound = await apiHelper.searchRecipies(query);
-      const videosFound = await apiHelper.searchYouTube(query);
-     
+        //this: apiHelper
+
+
+      const apiHelper = new ApiHelper();//creates objects
+
+
+      const recipiesFound = await apiHelper.searchRecipies(query);//creates an array with the recipes
+     // const videosFound = await apiHelper.searchYouTube(query);
+      //get acces to the recipies array:
+      setRecipes(recipiesFound);
+      setVideos(await apiHelper.searchYouTube(query));
 
       
 
       //display alert message if the property is set to false:
-      if (recipiesFound.length === 0) {
+      if (videos.length === 0) {
         return setAlert("No food found whith that name");
       }
 
-      //get acces to the recipies array:
-      setRecipes(recipiesFound);
-
-      setVideos(videosFound);
+      
       window.scrollTo(0,document.body.scrollHeight);
 
       //console.log(result);
@@ -86,7 +92,7 @@ const App = () => {
       </form>
 
 
-
+{/* Not show videos */}
       <div>
           {/* buttons to switch between recipe view and video view */}
         <FormControlLabel
@@ -102,6 +108,7 @@ const App = () => {
           style={{ marginRight: "100px" }}
         />
   
+  {/*show videos  */}
         <FormControlLabel
           label={<span style={{ fontSize: '2rem'}}>Videos</span>}
           control={
